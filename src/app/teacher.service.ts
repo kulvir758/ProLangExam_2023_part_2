@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,8 @@ export class TeacherService {
 
   constructor() { }
 
-  getTeachers() {
-    return [
+  getTeachers(): Observable<any[]> {
+    const teachers = [
       {
         id: 1,
         firstName: "James",
@@ -30,6 +31,8 @@ export class TeacherService {
           "Acting"
         ]
       }
-    ]
+    ];
+
+    return of(teachers);
   }
 }
